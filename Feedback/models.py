@@ -10,7 +10,7 @@ class Feedback(models.Model):
         ('suggestion','suggestion'),
         ('other','other'),
     ]
-
+#
     user = models.ForeignKey(user, on_delete=models.CASCADE)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     messages = models.TextField()
