@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nurse Assignment</title>
+</head>
+<body>
+
+    <h1>Assign Nurse to Patient</h1>
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Assign</button>
+    </form>
+
+    <hr>
+    <h2>Current Assignments</h2>
+    <ul>
+    {% for assignment in nurseassignment_list %}
+        <li>{{ assignment.nurse.name }} assigned to {{ assignment.patient.name }}</li>
+    {% empty %}
+        <li>No assignments yet.</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
