@@ -1,4 +1,4 @@
-# nurse_assignment/forms.py
+# nurse assignment forms
 from django import forms
 from .models import Nurse, Patient
 

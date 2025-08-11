@@ -1,5 +1,4 @@
-# Create your views here.
-# nurse_assignment/views.py
+# nurse assignment views
 from django.shortcuts import render
 from .forms import NurseAssignmentForm
 from .models import NurseAssignment, Nurse

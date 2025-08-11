@@ -1,4 +1,4 @@
-# nurse_assignment/urls.py
+# nurse assignment urls
 from django.urls import path
 from . import views
 

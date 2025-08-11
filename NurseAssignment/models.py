@@ -1,16 +1,16 @@
-# nurse_assignment
+# nurse assignment
 from django.db import models
 
 class Nurse(models.Model):
     name = models.CharField(max_length=100)
-    max_patients = models.PositiveIntegerField(default=5)  # max patients nurse can handle
+    max_patients = models.PositiveIntegerField(default=5) 
 
     def __str__(self):
         return self.name
 
 class Patient(models.Model):
     name = models.CharField(max_length=100)
-    # other patient info fields as needed
+    
 
     def __str__(self):
         return self.name
@@ -21,7 +21,7 @@ class NurseAssignment(models.Model):
     assigned_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('nurse', 'patient')  # prevent duplicate assignments
+        unique_together = ('nurse', 'patient') 
 
     def __str__(self):
         return f"{self.nurse.name} assigned to {self.patient.name}"
