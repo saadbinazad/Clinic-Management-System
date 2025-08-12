@@ -1,24 +1,10 @@
 
-from django.shortcuts import render, redirect
-from django.contrib.auth.models imporgit config --global user.email "sumayya.mehjabin@northsouth.edu"
-  git config --global user.name "Tajin"t User
-from .models import Doctor
-from .forms import DoctorForm
-
-def add_doctor(request):
-    if request.method == "POST":
-        form = DoctorForm(request.POST, request.FILES)
-        if form.is_valid():
-            doctor = form.save(commit=False)
-            doctor.user = request.user  
-            doctor.save()
-            return redirect('doctor_list')
-    else:
-        form = DoctorForm()
-    return render(request, 'doctor_add.html', {'form': form})
+from django.shortcuts import render
+from .models import DoctorAdd
 
 def doctor_list(request):
-    doctors = Doctor.objects.all()
-    return render(request, 'doctor_list.html', {'doctors': doctors})
+    doctors = DoctorAdd.objects.all()
+    return render(request, 'DoctorAdd/doctor_list.html', {'doctors': doctors})
+
 
 

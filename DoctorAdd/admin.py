@@ -1,15 +1,15 @@
-from django.contrib import admin 
+from django.contrib import admin
+from .models import DoctorAdd
 
-from .models import Doctor, DoctorAdd
+@admin.register(DoctorAdd)
+class DoctorAddAdmin(admin.ModelAdmin):
+    list_display = ('get_name', 'ID', 'department', 'specialization', 'schedule', 'mobile', 'status')
+    search_fields = ('user__first_name', 'user__last_name', 'department')
+    list_editable = ('status',)
 
-class DoctorAddAdmin(admin.ModelAdmin): 
-    
- list_display = ('get_name', 'department', 'Id','Specialization' ,'schedule' ,'add_confirm' ,'add_error','mobile', 'status')
- 
-search_fields = ('user__first_name', 'user__last_name', 'department')
-    
-list_editable= ['add_confirm' ,'add_error']
+    def get_name(self, obj):
+        return f"{obj.user.first_name} {obj.user.last_name}"
+    get_name.short_description = "Name"
 
-admin.site.register(Doctor ,DoctorAdd, DoctorAddAdmin)
 
 
