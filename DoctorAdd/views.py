@@ -1,6 +1,7 @@
 
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from django.contrib.auth.models imporgit config --global user.email "sumayya.mehjabin@northsouth.edu"
+  git config --global user.name "Tajin"t User
 from .models import Doctor
 from .forms import DoctorForm
 
@@ -9,7 +10,7 @@ def add_doctor(request):
         form = DoctorForm(request.POST, request.FILES)
         if form.is_valid():
             doctor = form.save(commit=False)
-            doctor.user = request.user  # যদি doctor লগইন করা user হয়
+            doctor.user = request.user  
             doctor.save()
             return redirect('doctor_list')
     else:

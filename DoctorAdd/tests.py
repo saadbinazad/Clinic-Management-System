@@ -5,14 +5,14 @@ from .models import Doctor
 class DoctorModelTest(TestCase):
 
     def setUp(self):
-        # টেস্টের জন্য একটা ইউজার তৈরি করা
+       
         self.user = User.objects.create_user(
             username="testdoctor",
             password="testpass123",
             first_name="John",
             last_name="Doe"
         )
-        # টেস্টের জন্য একটা ডাক্তার অবজেক্ট তৈরি করা
+       
         self.doctor = Doctor.objects.create(
             user=self.user,
             address="123 Test Street",
