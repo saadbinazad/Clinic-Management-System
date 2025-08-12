@@ -21,6 +21,6 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('nurse_assignment/', include('NurseAssignment.urls')),
-    path('', lambda request: redirect('nurse_assignment/assign/')),  # redirect root to your assign page
-
+    path('report/', include('report.urls')), 
+    path('', lambda request: redirect('nurse_assignment/assign/')),
 ]

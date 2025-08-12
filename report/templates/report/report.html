@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Daily / Monthly Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container py-4">
+    <h1>Daily / Monthly Report</h1>
+
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.report_type.label_tag }}<br>
+            {{ form.report_type }}
+        </div>
+        <div class="mb-3">
+            {{ form.date.label_tag }}<br>
+            {{ form.date }}
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Report</button>
+    </form>
+
+    {% if report %}
+        <h2>{{ report.type }} Report for {{ report.date }}</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Total Patients: {{ report.total_patients }}</li>
+            <li class="list-group-item">Total Appointments: {{ report.total_appointments }}</li>
+            <li class="list-group-item">Total Nurses: {{ report.total_nurses }}</li>
+        </ul>
+    {% endif %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
