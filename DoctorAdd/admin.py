@@ -3,7 +3,7 @@ from .models import DoctorAdd
 
 @admin.register(DoctorAdd)
 class DoctorAddAdmin(admin.ModelAdmin):
-    list_display = ('get_name', 'ID', 'department', 'specialization', 'schedule', 'mobile', 'status')
+    list_display = ('get_name',  'department', 'specialization', 'schedule', 'mobile', 'status')
     search_fields = ('user__first_name', 'user__last_name', 'department')
     list_editable = ('status',)
 
