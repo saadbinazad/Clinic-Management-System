@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from cmsApp import views
+from django.contrib.auth.views import LoginView,LogoutView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+      path('admin/', admin.site.urls),
+    path('',views.index,name=''),
+
+    path('patientclick', views.patientclick_view),
+    path('patientsignup', views.patient_signup_view),
+    
+    path('patientlogin', LoginView.as_view(template_name='patientlogin.html')),
+    path('logout', LogoutView.as_view(template_name='base.html'),name='logout')
 ]
