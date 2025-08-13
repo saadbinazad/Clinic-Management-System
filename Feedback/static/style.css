@@ -1,0 +1,39 @@
+/*
+    style.css
+    Styles for the feedback form and general page layout.
+*/
+body {
+    /* Set base font and background color */
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    /* Style the main heading */
+    color: #333;
+    text-align: center;
+    margin-top: 40px;
+}
+form {
+    /* Center the form and add padding, background, and shadow */
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+button {
+    /* Style the submit button */
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    /* Button hover effect */
+    background: #0056b3;
+}

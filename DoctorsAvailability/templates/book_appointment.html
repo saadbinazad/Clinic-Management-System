@@ -1,0 +1,19 @@
+<!--
+# book_appointment.html
+# Form for patients to book an appointment with a selected doctor.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+</head>
+<body>
+    <h1>Book Appointment with {{ doctor.name }}</h1>
+    <!-- # Appointment booking form -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book</button>
+    </form>
+</body>
+</html>
