@@ -1,0 +1,23 @@
+<!--
+# doctor_list.html
+# Displays a list of available doctors for patients to browse and book appointments.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctors Availability</title>
+</head>
+<body>
+    <h1>Available Doctors</h1>
+    <ul>
+        {% for doctor in doctors %}
+        <li>
+            <!-- # Show doctor details: name, specialization, availability -->
+            <strong>{{ doctor.name }}</strong> - {{ doctor.specialization }} - {% if doctor.available %}Available{% else %}Not Available{% endif %}
+            <!-- # Link to book an appointment with the selected doctor -->
+            <a href="{% url 'book_appointment' doctor.id %}">Book Appointment</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
