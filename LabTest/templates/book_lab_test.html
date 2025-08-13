@@ -1,0 +1,19 @@
+<!--
+# book_lab_test.html
+# Form for patients to book a selected lab test by providing date, time, and location.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Lab Test</title>
+</head>
+<body>
+    <h1>Book Lab Test: {{ test.name }}</h1>
+    <!-- # Lab test booking form -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book</button>
+    </form>
+</body>
+</html>
