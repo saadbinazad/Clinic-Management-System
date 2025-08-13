@@ -1,0 +1,23 @@
+<!--
+# labtest_list.html
+# Displays a list of available lab tests for patients to browse and book.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Tests</title>
+</head>
+<body>
+    <h1>Available Lab Tests</h1>
+    <ul>
+        {% for test in tests %}
+        <li>
+            <!-- # Show test details: name, price, duration, sample type -->
+            <strong>{{ test.name }}</strong> - {{ test.price }} - {{ test.duration }} - {{ test.sample_type }}
+            <!-- # Link to book the selected lab test -->
+            <a href="{% url 'book_lab_test' test.id %}">Book</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

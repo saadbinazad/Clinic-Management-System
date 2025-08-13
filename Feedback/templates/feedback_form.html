@@ -1,0 +1,21 @@
+<!--
+# feedback_form.html
+# Form for patients to submit feedback or complaints about services or products.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Submit Your Feedback</h1>
+    <!-- # Feedback submission form -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
