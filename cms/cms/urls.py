@@ -1,5 +1,5 @@
 """
-URL configuration for cms project.
+URL configuration for ClinicManagement project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -19,13 +19,25 @@ from django.urls import path
 from cmsApp import views
 from django.contrib.auth.views import LoginView,LogoutView
 
+
+
 urlpatterns = [
-      path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('',views.index,name=''),
 
     path('patientclick', views.patientclick_view),
     path('patientsignup', views.patient_signup_view),
     
     path('patientlogin', LoginView.as_view(template_name='patientlogin.html')),
-    path('logout', LogoutView.as_view(template_name='base.html'),name='logout')
+    path('logout', LogoutView.as_view(template_name='base.html'),name='logout'),
+
+    path('patient-dashboard', views.patient_dashboard_view,name='patient-dashboard'),
+    path('patient-appointment', views.patient_appointment_view,name='patient-appointment'),
+    path('patient-book-appointment', views.patient_book_appointment_view,name='patient-book-appointment'),
+    path('patient-view-appointment', views.patient_view_appointment_view,name='patient-view-appointment'),
+   
+    path('patient-discharge', views.patient_discharge_view,name='patient-discharge'),
+     
+
+
 ]
