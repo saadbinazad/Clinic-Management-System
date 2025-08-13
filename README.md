@@ -1,4 +1,8 @@
 # Clinic-Management-System
+
+A hospital or Clinic management system.
+Patient: singnup, login, Payment, feedback, appinment
+=======
 HOW TO RUN THIS PROJECT
 
 Step 1: Install Python
@@ -24,3 +28,4 @@ py manage.py runserver
 Step 6: Open in Browser
 Visit: http://127.0.0.1:8000/
 The Clinic Management System should now be running locally
+
