@@ -29,6 +29,33 @@ class Doctor(models.Model):
 
 
 class Patient(models.Model):
+    """
+    Patient model for the clinic system.
+
+    Attributes
+    ----------
+    user : User
+        Linked Django user.
+    address : str
+        Patient's address.
+    mobile : str
+        Patient's phone number.
+    symptoms : str
+        Patient's symptoms.
+    assignedDoctorId : int, optional
+        Assigned doctor's ID.
+    admitDate : date
+        Admission date (auto-set).
+    status : bool
+        Account status (approved or not).
+
+    Properties
+    ----------
+    get_name : str
+        Full name of the patient.
+    get_id : int
+        User ID.
+    """
     user=models.OneToOneField(User,on_delete=models.CASCADE)
  
     address = models.CharField(max_length=40)
@@ -59,6 +86,41 @@ class Appointment(models.Model):
 
 
 class PatientDischargeDetails(models.Model):
+    """
+    Stores discharge details for a patient.
+
+    Attributes
+    ----------
+    patientId : int, optional
+        ID of the patient.
+    patientName : str
+        Name of the patient.
+    assignedDoctorName : str
+        Name of the assigned doctor.
+    address : str
+        Patient's address.
+    mobile : str, optional
+        Patient's phone number.
+    symptoms : str, optional
+        Patient's symptoms.
+    admitDate : date
+        Admission date.
+    releaseDate : date
+        Discharge date.
+    daySpent : int
+        Number of days spent in hospital.
+    roomCharge : int
+        Room charges.
+    medicineCost : int
+        Cost of medicines.
+    doctorFee : int
+        Doctor's fee.
+    OtherCharge : int
+        Other charges.
+    total : int
+        Total bill amount.
+    """
+
     patientId=models.PositiveIntegerField(null=True)
     patientName=models.CharField(max_length=40)
     assignedDoctorName=models.CharField(max_length=40)
