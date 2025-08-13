@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Remove Patient{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0">Remove Patient Record</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-danger"><strong>Warning:</strong> This action is irreversible and will permanently delete the patient's record from the database.</p>
+                <form method="POST" action="{% url 'remove_patient' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="patientSelect" class="form-label">Select Patient to Remove</label>
+                        <select class="form-select" id="patientSelect" name="patient_id" required>
+                            <option selected disabled value="">Choose...</option>
+                            {% for patient in patients %}
+                                <option value="{{ patient.id }}">{{ patient.first_name }} {{ patient.last_name }} (Admitted: {{ patient.admission_date|date:"d M Y" }})</option>
+                            {% empty %}
+                                <option disabled>No patients found to remove.</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-danger w-100">Permanently Remove Patient</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

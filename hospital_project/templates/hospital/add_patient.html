@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Admit Patient{% endblock %}
+
+{% block content %}
+<div class="page-header fade-in-up">
+    <h1 class="page-title">
+        <i class="fas fa-user-plus me-3"></i>Patient Admission
+    </h1>
+    <p class="page-subtitle">Register and admit a new patient into the hospital system</p>
+</div>
+
+<div class="row justify-content-center fade-in-up">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-clipboard-list me-2"></i>Patient Admission Form
+                </h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" action="{% url 'add_patient' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">
+                                <i class="fas fa-user me-2"></i>First Name
+                            </label>
+                            <input type="text" class="form-control" id="firstName" name="first_name" 
+                                   value="{{ request.POST.first_name|default:'' }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">
+                                <i class="fas fa-user me-2"></i>Last Name
+                            </label>
+                            <input type="text" class="form-control" id="lastName" name="last_name" 
+                                   value="{{ request.POST.last_name|default:'' }}" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="age" class="form-label">
+                                <i class="fas fa-birthday-cake me-2"></i>Age
+                            </label>
+                            <input type="number" class="form-control" id="age" name="age" 
+                                   value="{{ request.POST.age|default:'' }}" min="1" max="150" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="contactNumber" class="form-label">
+                                <i class="fas fa-phone me-2"></i>Contact Number
+                            </label>
+                            <input type="tel" class="form-control" id="contactNumber" name="contact_no" 
+                                   value="{{ request.POST.contact_no|default:'' }}" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope me-2"></i>Email Address
+                        </label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                               value="{{ request.POST.email|default:'' }}" required>
+                    </div>
+                    <hr class="my-4">
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-plus-circle me-2"></i>Admit Patient
+                        </button>
+                        <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Home
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
