@@ -7,7 +7,7 @@ class DoctorAddTest(TestCase):
         user = User.objects.create(first_name="John", last_name="Doe", username="johndoe")
         doctor = DoctorAdd.objects.create(
             user=user,
-            id="221156"
+      
             department="Cardiology",
             specialization="Heart Specialist",
             schedule="Mon-Fri, 10AM-5PM",
