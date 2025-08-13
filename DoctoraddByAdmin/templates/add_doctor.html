@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Add Doctor</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body class="container">
+  <nav><a href="{% url 'check_availability' %}">Availability</a> | <a href="{% url 'doctor_list' %}">Doctor List</a></nav>
+  <h2>Add Doctor</h2>
+
+  {% for msg in messages %}
+    <article class="secondary">{{ msg }}</article>
+  {% endfor %}
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+</body>
+</html>
